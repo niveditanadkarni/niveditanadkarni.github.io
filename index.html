@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Nivedita Nadkarni</title>
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<script>
+    var btn = document.getElementById('request');
+    var bio = document.getElementById('about');
+
+    var request = new XMLHttpRequest();
+
+    request.onreadystatechange = function() {
+        if (request.readyState === 4) {
+            bio.style.border = '1px solid #e8e8e8';
+            if (request.status === 200) {
+                bio.innerHTML = request.responseText;
+            } else {
+                bio.innerHTML = 'An error occurred during your request: ' + request.status + ' ' + request.statusText;
+            }
+        }
+    }
+
+    request.open('Get', 'about.txt');
+
+    btn.addEventListener('click', function() {
+        this.style.display = 'none';
+        request.send();
+    });
+</script>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <div id=a bout>
+                <li>
+                    <a href="/about" id="about"> About</a></li>
+            </div>
+
+            <li><a href="/cv ">CV</a></li>
+            <li><a href="/blog ">Blog</a></li>
+        </ul>
+    </nav>
+    <div class="container ">
+        <div class="blurb ">
+            <h1>Hi there, I'm Nivedita Nadkarni!</h1>
+            <p>I am a Software Engineering Graduate Student at San Jose State University. Software Engineer with 2.5 yrs of Industry Experience</p>
+        </div>
+        <!-- /.blurb -->
+    </div>
+    <!-- /.container -->
+    <footer>
+        <div class="footer-bottom ">
+
+            <article>
+                <!-- class="list-inline " -->
+                <ul class="list-inline-footer ">
+                    <li>
+                        <a href="http://github.com/niveditanadkarni " class="fa fa-github " style="font-size:24px "></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com/in/niveditanadkarni " class="fa fa-linkedin-square " style="font-size:24px "></a>
+                        <!--<a href="https://www.linkedin.com/in/niveditanadkarni " title="LinkedIn " class="btn btn-linkedin btn-lg "><i class="fa fa-linkedin fa-fw "></i> </a> -->
+                    </li>
+                    <li>
+                        <a href="mailto:nadkarni.nivedita@gmail.com " class="fa fa-envelope-o " style="font-size:24px "></a>
+                    </li>
+                </ul>
+            </article>
+            <article>
+                <p class="copyright ">Copyright © Nivedita Nadkarni</p>
+            </article>
+        </div>
+        <!-- <ul>
+            <li><a href="mailto: ">email</a></li>
+            <li><a href="https://github.com/niveditanadkarni ">github.com/niveditanadkarni</a></li>
+        </ul> -->
+    </footer>
+</body>
+
+</html>
